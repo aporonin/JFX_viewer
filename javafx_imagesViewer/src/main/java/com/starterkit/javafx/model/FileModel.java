@@ -13,30 +13,31 @@ import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 
 public class FileModel {
-    private final StringProperty directory = new SimpleStringProperty("");
-    private final ListProperty<ImageVO> result = new SimpleListProperty<>(FXCollections.observableList(new ArrayList<>()));
+	private final StringProperty directory = new SimpleStringProperty("");
+	private final ListProperty<ImageVO> result = new SimpleListProperty<>(
+			FXCollections.observableList(new ArrayList<>()));
 
-    public final String getDirectory() {
-        return directory.get();
-    }
+	public final String getDirectory() {
+		return directory.get();
+	}
 
-    public final void setDirectory(String value) {
-        directory.set(value);
-    }
+	public final void setDirectory(String value) {
+		directory.set(value);
+	}
 
-    public StringProperty directoryProperty() {
-        return directory;
-    }
+	public StringProperty directoryProperty() {
+		return directory;
+	}
 
-    public List<ImageVO> getResult() {
-        return result.get();
-    }
+	public List<ImageVO> getResult() {
+		return result.get();
+	}
 
-    public void setResult(Collection<ImageVO> value) {
-        result.setAll(value);
-    }
+	public void setResult(Collection<ImageVO> value) {
+		result.setAll(value);
+	}
 
-    public ListProperty<ImageVO> resultProperty() {
-        return result;
-    }
+	public ListProperty<ImageVO> resultProperty() {
+		return result;
+	}
 }

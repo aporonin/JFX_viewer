@@ -10,27 +10,26 @@ import java.util.stream.Collectors;
 import com.starterkit.javafx.dataprovider.DataProvider;
 import com.starterkit.javafx.dataprovider.data.ImageVO;
 
-
 public class DataProviderImpl implements DataProvider {
 
-    private final Collection<String> imagesExtensions = Arrays.asList("jpg", "png", "gif");
-    
-    @Override
-    public Collection<ImageVO> getImages(String directoryPath) {
-        File[] files = new File(directoryPath).listFiles(new FilenameFilter() {
+	private final Collection<String> imagesExtensions = Arrays.asList("jpg", "png", "gif");
 
-            @Override
-            public boolean accept(File dir, String name) {
-                for (String extension : imagesExtensions) {
-                    if (name.toLowerCase().endsWith(extension)) {
-                        return true;
-                    }
-                }
-                return false;
-            }
-        });
-        Function<File, ImageVO> fileToImageVO = file -> new ImageVO(directoryPath, file.getName());
-        return Arrays.asList(files).stream().filter(File::isFile).map(fileToImageVO).collect(Collectors.toList());
-    }
+	@Override
+	public Collection<ImageVO> getImages(String directoryPath) {
+		File[] files = new File(directoryPath).listFiles(new FilenameFilter() {
+
+			@Override
+			public boolean accept(File dir, String name) {
+				for (String extension : imagesExtensions) {
+					if (name.toLowerCase().endsWith(extension)) {
+						return true;
+					}
+				}
+				return false;
+			}
+		});
+		Function<File, ImageVO> fileToImageVO = file -> new ImageVO(directoryPath, file.getName());
+		return Arrays.asList(files).stream().filter(File::isFile).map(fileToImageVO).collect(Collectors.toList());
+	}
 
 }
