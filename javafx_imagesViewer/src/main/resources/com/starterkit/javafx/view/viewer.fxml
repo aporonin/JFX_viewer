@@ -27,6 +27,7 @@
    <children>
       <HBox alignment="CENTER_LEFT" fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="400.0">
          <children>
+         	<!-- REV: lepiej ustawic kolor w CSS -->
             <Button fx:id="browseButton" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#browseButtonAction" prefHeight="31.0" prefWidth="131.0" text="%button.browse" textFill="#06667c">
                <HBox.margin>
                   <Insets left="10.0" />
@@ -73,6 +74,7 @@
       </VBox>
       <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" pannable="true" prefHeight="400.0" prefWidth="400.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <content>
+         	<!-- REV: StackPane nie jest potrzebny -->
             <StackPane fx:id="imageHolder" prefHeight="150.0" prefWidth="200.0">
                <children>
                   <ImageView fx:id="imageView" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER" />

@@ -108,6 +108,7 @@ public class ImagesViewerController {
 	public void playButtonAction() {
 		if (!slideShowOn) {
 			slideShowOn = true;
+			// REV: TimeLine moznaby skonfigurowac w konstruktorze, ale samo rozwiazanie fajne :)
 			timeline = new Timeline();
 			timeline.setCycleCount(Timeline.INDEFINITE);
 			timeline.setAutoReverse(true);
@@ -139,6 +140,7 @@ public class ImagesViewerController {
 	private void initializeZoom() {
 		if (zoomProperty == null) {
 			zoomProperty = new SimpleDoubleProperty(200);
+			// REV: dlaczego InvalidationListener?
 			zoomProperty.addListener(new InvalidationListener() {
 				@Override
 				public void invalidated(Observable arg0) {
@@ -146,7 +148,7 @@ public class ImagesViewerController {
 					imageView.setFitHeight(zoomProperty.get() * 3);
 				}
 			});
-
+			// REV: dlaczego EventFilter?
 			scrollPane.addEventFilter(ScrollEvent.ANY, new EventHandler<ScrollEvent>() {
 				@Override
 				public void handle(ScrollEvent event) {
@@ -162,6 +164,7 @@ public class ImagesViewerController {
 	}
 
 	private void enableButtons() {
+		// REV: lepiej uzyc bindow
 		previousButton.setDisable(false);
 		nextButton.setDisable(false);
 		playButton.setDisable(false);
@@ -221,6 +224,7 @@ public class ImagesViewerController {
 	}
 
 	private void updateDirectoryLabel() {
+		// REV: bindy
 		directoryLabel.setText(model.getDirectory());
 		directoryLabel.setTooltip(new Tooltip(model.getDirectory()));
 		directoryLabel.setVisible(true);

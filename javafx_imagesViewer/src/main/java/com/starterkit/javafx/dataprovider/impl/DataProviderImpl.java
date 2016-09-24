@@ -28,6 +28,7 @@ public class DataProviderImpl implements DataProvider {
 				return false;
 			}
 		});
+		// REV: mozna uzyc FileFilter zamiast FilenameFilter i tam sprawdzic mamy plik
 		Function<File, ImageVO> fileToImageVO = file -> new ImageVO(directoryPath, file.getName());
 		return Arrays.asList(files).stream().filter(File::isFile).map(fileToImageVO).collect(Collectors.toList());
 	}
